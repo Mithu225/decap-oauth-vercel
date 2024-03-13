@@ -63,4 +63,4 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 }
 
-export const runtime = "experimental-edge";
+export const runtime = "edge";
