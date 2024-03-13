@@ -5,7 +5,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     console.log(req.url, "req.url");
-    const url = new URL(req.url!);
+    console.log(req.headers.host, "req.headers.host");
+    const url = new URL(req.headers.host!);
     const redirectUrl = new URL("https://github.com/login/oauth/authorize");
     redirectUrl.searchParams.set("client_id", client_id!);
     redirectUrl.searchParams.set("redirect_uri", url.origin + "/api/callback");
