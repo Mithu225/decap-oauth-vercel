@@ -1,0 +1,24 @@
+{
+  "name": "decap-oauth-vercel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mithu225/decap-oauth-vercel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mithu225/decap-oauth-vercel/issues"
+  },
+  "homepage": "https://github.com/Mithu225/decap-oauth-vercel#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.27",
+    "@vercel/node": "^3.0.22",
+    "typescript": "^5.4.2"
+  }
+}
