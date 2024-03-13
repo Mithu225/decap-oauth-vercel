@@ -28,6 +28,4 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   }
 }
 
-export const config = {
-  runtime: "edge",
-};
+export const runtime = "experimental-edge";
