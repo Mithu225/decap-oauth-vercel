@@ -19,11 +19,11 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       "state",
       crypto.getRandomValues(new Uint8Array(12)).join("")
     );
-    return res.redirect(301, redirectUrl.href);
+    return Response.redirect(redirectUrl.href, 301);
   } catch (error) {
     console.error(error);
-    return res.status(500).json({
-      message: error.message,
+    return new Response(error.message, {
+      status: 500,
     });
   }
 }

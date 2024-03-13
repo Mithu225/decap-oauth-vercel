@@ -38,10 +38,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     );
     const result = await response.json();
     if (result.error) {
-      return res
-        .status(401)
-        .send(renderBody("error", result))
-        .setHeader("content-type", "text/html;charset=UTF-8");
+      return new Response(renderBody("error", result), {
+        headers: {
+          "content-type": "text/html;charset=UTF-8",
+        },
+        status: 401,
+      });
     }
     const token = result.access_token;
     const provider = "github";
@@ -50,16 +52,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       provider,
     });
 
-    return res
-      .status(200)
-      .send(responseBody)
-      .setHeader("content-type", "text/html;charset=UTF-8");
+    return new Response(responseBody, {
+      headers: {
+        "content-type": "text/html;charset=UTF-8",
+      },
+      status: 200,
+    });
   } catch (error) {
     console.error(error);
-    return res
-      .status(500)
-      .send(error.message)
-      .setHeader("content-type", "text/html;charset=UTF-8");
+    return new Response(error.message, {
+      headers: {
+        "content-type": "text/html;charset=UTF-8",
+      },
+      status: 500,
+    });
   }
 }
 
