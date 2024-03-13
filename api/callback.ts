@@ -62,3 +62,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       .setHeader("content-type", "text/html;charset=UTF-8");
   }
 }
+
+export const config = {
+  runtime: "edge",
+};

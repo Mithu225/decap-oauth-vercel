@@ -1,6 +1,12 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
+  if (typeof globalThis.EdgeRuntime !== "string") {
+    console.log("EdgeRuntime");
+    // dead-code elimination is enabled for the code inside this block
+  } else {
+    console.log("no EdgeRuntime");
+  }
   const client_id = process.env.GITHUB_CLIENT_ID;
 
   try {
