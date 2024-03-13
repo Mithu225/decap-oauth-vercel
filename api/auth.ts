@@ -4,6 +4,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   const client_id = process.env.GITHUB_CLIENT_ID;
 
   try {
+    console.log(req.url, "req.url");
     const url = new URL(req.url!);
     const redirectUrl = new URL("https://github.com/login/oauth/authorize");
     redirectUrl.searchParams.set("client_id", client_id!);
